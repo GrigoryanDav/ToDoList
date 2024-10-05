@@ -1,0 +1,108 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    position: relative;
+    padding-left: 20px;
+    padding-bottom: 30px;
+    font-size: 20px;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 50px;
+    width: 5px;
+    background-color: rgb(205, 205, 205);
+}
+
+.container {
+    max-width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(205, 205, 205);
+}
+
+.top {
+    background-color: rgb(205, 205, 205);
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.top input {
+    width: 17%;
+    padding: 15px;
+    border: none;
+}
+
+.main {
+    width: 100%;
+}
+
+.main ul, .main h3 {
+    padding-left: 50px;
+}
+
+.main button {
+    padding: 15px 20px;
+    margin-right: 50px;
+}
+
+.main ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.down {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.down div {
+    padding-bottom: 20px;
+}
+
+button {
+    background-color: rgb(56, 56, 56);
+    padding: 15px 15px;
+    color: white;
+}
+
+.addInput {
+    width: 15%;
+    padding: 15px;
+}
+
+@media(max-width: 685px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    h2, ul li, h3 {
+        font-size: 16px;
+    }
+
+    input {
+        font-size: 10px;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}
