@@ -23,6 +23,11 @@ ul li::before {
     height: 50px;
     width: 5px;
     background-color: rgb(205, 205, 205);
+    transition: background-color ease 0.3s;
+}
+
+ul li:hover::before {
+    background-color: rgb(121, 119, 119);
 }
 
 .container {
@@ -82,6 +87,7 @@ button {
     background-color: rgb(56, 56, 56);
     padding: 15px 15px;
     color: white;
+    cursor: pointer;
 }
 
 .addInput {
