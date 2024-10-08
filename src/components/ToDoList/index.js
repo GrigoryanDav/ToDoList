@@ -17,7 +17,7 @@ const ToDoList = () => {
         localStorage.setItem('books', JSON.stringify(books))
     }, [books])
 
-    const filteredBooks = books.filter((book) => book.toLowerCase().includes(searchBook.toLowerCase()))
+    const filteredBooks = books.filter((book) => book.name.toLowerCase().includes(searchBook.toLowerCase()))
 
     const handleCheckboxChange = (event) => {
         setHideBooks(event.target.checked)
@@ -25,15 +25,16 @@ const ToDoList = () => {
 
     const addBook = (event) => {
         event.preventDefault()
-        const newBook = event.target.elements.bookName.value.trim()
-        if (newBook) {
+        const newBookName = event.target.elements.bookName.value.trim()
+        if (newBookName) {
+            const newBook = {name: newBookName, id: Date.now()}
             setBooks([...books, newBook])
             event.target.reset()
         }
     }
 
-    const deleteBook = (bookToDelete) => {
-        setBooks(books.filter((_, index) => index !== bookToDelete))
+    const deleteBook = (bookId) => {
+        setBooks(books.filter((book) => book.id !== bookId))
     }
 
     return (
@@ -49,9 +50,9 @@ const ToDoList = () => {
                     <ul>
                         {filteredBooks.length > 0 ? (
                             filteredBooks.map((book, index) => (
-                                <li key={index}>
-                                    {book}
-                                    <button onClick={() => deleteBook(index)}>Delete</button>
+                                <li key={book.id}>
+                                    {book.name}
+                                    <button onClick={() => deleteBook(book.id)}>Delete</button>
                                 </li>
                             ))
                         ) : (
